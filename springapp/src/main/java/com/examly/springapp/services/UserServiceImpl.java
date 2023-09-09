@@ -13,7 +13,11 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserRepository userRepo;
 
+   
+
+
 	public String passwordEncoder(String password) {
+        System.out.println("Welcome");
 		return new BCryptPasswordEncoder().encode(password);
 	}
 
@@ -23,7 +27,7 @@ public class UserServiceImpl implements UserService {
 		User newUser= userRepo.save(user);
 		return newUser;
 	}
-	
+
 	public String loginUser(User user)
 	{
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -39,5 +43,7 @@ public class UserServiceImpl implements UserService {
 		}
 		return "failed"; 
 	}
+
+
 
 }
